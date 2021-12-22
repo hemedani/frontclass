@@ -1,0 +1,8 @@
+.parent {
+  background-color: darksalmon;
+  color: darkblue;
+}
+div {
+  font-size: 30px;
+  font-weight: bold;
+}
