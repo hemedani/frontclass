@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: bisque;
+  display: flex;
+}
+
+.item {
+  width: 200px;
+  min-height: 250px;
+  border: 2px solid goldenrod;
+  background-color: cadetblue;
+  color: azure;
+  font-size: large;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.item-1 {
+  width: 250px;
+  min-height: 150px;
+  font-size: 2.5rem;
+  flex-grow: 2;
+}
+
+.item-2 {
+  min-height: 100px;
+}
+
+.item-3 {
+  min-height: 300px;
+  font-size: 2.5rem;
+}
