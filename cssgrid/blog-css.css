@@ -1,0 +1,121 @@
+:root {
+  --primary: #707070;
+  --btn-hover: #ffdf6c;
+  --btn: #c4c4c4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  direction: rtl;
+  font-family: Shabnam;
+}
+
+.container {
+  /* max-width: 88rem; */
+  width: 80vw;
+}
+
+header {
+  background-color: var(--primary);
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: whitesmoke;
+  padding: 0 10vw;
+  position: relative;
+}
+
+header nav {
+  flex: 4;
+  position: relative;
+  height: 100%;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  height: 100%;
+}
+
+header ul li {
+  padding: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+header ul li::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  right: 10%;
+  width: 80%;
+  height: 0.1rem;
+  background-color: var(--btn-hover);
+  display: none;
+}
+
+header ul li:hover {
+  cursor: pointer;
+  color: var(--btn-hover);
+}
+
+header ul li:hover::after {
+  display: block;
+}
+
+header section {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header section button {
+  padding: 0.2rem 1rem;
+  margin: 0 0.5rem;
+  min-width: 6rem;
+  min-height: 1.8rem;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  line-height: 0.5rem;
+  cursor: pointer;
+  font-family: Shabnam;
+  background-color: var(--btn);
+  border: none;
+}
+
+header section button:hover {
+  background-color: var(--btn-hover);
+}
+
+main {
+  background-color: bisque;
+  min-height: 10rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+main article:first-child {
+  grid-column: span 2;
+}
+
+.suggested {
+  background-color: blueviolet;
+  min-height: 10rem;
+}
+
+.articles {
+  background-color: brown;
+  min-height: 10rem;
+}
