@@ -100,14 +100,46 @@ header section button:hover {
 }
 
 main {
-  background-color: bisque;
   min-height: 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin: 5rem auto;
 }
 
 main article:first-child {
   grid-column: span 2;
+}
+
+main article:first-child img {
+  height: auto;
+  width: 100%;
+}
+
+main article {
+  position: relative;
+  height: 30rem;
+  overflow: hidden;
+  border-radius: 0.2rem;
+}
+
+main article img {
+  height: 100%;
+}
+
+main article h2 {
+  position: absolute;
+  bottom: 6rem;
+  right: 1rem;
+  color: whitesmoke;
+  font-size: 1.5rem;
+}
+
+main article p {
+  color: rgb(230, 230, 230);
+  position: absolute;
+  bottom: 4rem;
+  right: 1rem;
 }
 
 .suggested {
