@@ -28,6 +28,12 @@ for (let i = 0; i < arr.length; i++) {
 }
 console.log(inJs);
 
-const inJsFn = arr.filter((person) => !person.kellas.includes('js'));
+const inJsFn = arr.filter((person) => person.kellas.includes('js'));
 
 console.log(inJsFn);
+
+// we wants this Object from arr
+// const moadel = [{
+// name: "reza",
+// moadel: 7.6
+// }]
