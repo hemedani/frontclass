@@ -37,3 +37,57 @@ console.log(inJsFn);
 // name: "reza",
 // moadel: 7.6
 // }]
+//
+
+const moadel = arr.map((person) => {
+  return {
+    name: person.name,
+    moadel: (
+      person.nomre.reduce((num, nomre) => num + nomre, 0) / person.nomre.length
+    ).toFixed(2),
+  };
+});
+
+console.log('moadel', moadel);
+
+const gql = `
+    getUser {
+        firstName
+        lastName
+        ssn
+        address {
+            text
+            zipcode
+            city {
+                name
+                geo
+                abb
+                state {
+                    name
+                    geo
+                    abb
+                }
+            }
+        }
+        friends {
+            name
+            fullName
+            address {
+                text
+                zipcode
+                city {
+                    name
+                    geo
+                    abb
+                    state {
+                        name
+                        geo
+                        abb
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const parsedGql = JSON.parse(gql);
