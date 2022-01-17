@@ -26,11 +26,11 @@ for (let i = 0; i < arr.length; i++) {
     }
   }
 }
-console.log(inJs);
+// console.log(inJs);
 
 const inJsFn = arr.filter((person) => person.kellas.includes('js'));
 
-console.log(inJsFn);
+// console.log(inJsFn);
 
 // we wants this Object from arr
 // const moadel = [{
@@ -38,6 +38,15 @@ console.log(inJsFn);
 // moadel: 7.6
 // }]
 //
+
+// const newStr = 'dksfjhsdf';
+//
+// console.log(typeof newStr);
+//
+// const newStrStruct = new String('dksfjhsdf');
+//
+// console.log(typeof newStrStruct);
+// console.log(typeof inJsFn);
 
 const moadel = arr.map((person) => {
   return {
@@ -48,7 +57,16 @@ const moadel = arr.map((person) => {
   };
 });
 
-console.log('moadel', moadel);
+// console.log('moadel', moadel);
+
+// const pritinAvarage =
+//   'your avarage of ' + moadel[0].name + ' is equal to ' + moadel[0].moadel;
+//
+// console.log('pritinAvarage : => ', pritinAvarage);
+//
+// const litralAvarage = `your avarage of ${moadel[0].name} is equal to ${moadel[0].moadel}`;
+//
+// console.log('litralAvarage : => ', litralAvarage);
 
 const gql = `
     getUser {
@@ -79,7 +97,7 @@ const gql = `
                     name
                     geo
                     abb
-                    state {
+                    state  {
                         name
                         geo
                         abb
@@ -90,4 +108,30 @@ const gql = `
     }
 `;
 
-const parsedGql = JSON.parse(gql);
+// const jsonSt = '{"getUser":{"name":"saeid"}, "city": {"ssn": "ssn", "name":"name" }}';
+//
+// console.log('jsonSt string', jsonSt, JSON.parse(jsonSt).getUser.name);
+
+const parseOpenBraces = (line) =>
+  `"${line.slice(0, line.length - 1).trim()}":{`;
+
+const proccessCloseBrace = (nextItem) =>
+  nextItem && (nextItem.trim() === '}' ? '}' : '},');
+
+const proccessOthers = (line, nextItem) =>
+  line.trim() && `"${line}": "${line}"${nextItem.trim() === '}' ? '' : ','}`;
+
+const standardJSON = gql
+  .split('\n')
+  .map((l, i, arr) => {
+    l = l.trim();
+    return l.endsWith('{')
+      ? parseOpenBraces(l)
+      : l.endsWith('}')
+      ? proccessCloseBrace(arr[i + 1])
+      : proccessOthers(l, arr[i + 1]);
+  })
+  .filter((line) => line)
+  .join('');
+
+console.log(JSON.parse(`{${standardJSON}}}`).getUser);
